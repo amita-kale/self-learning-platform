@@ -1,1 +1,72 @@
-<p>crud-using-angular works!</p>
+<html>
+  <head><title>Table</title></head>
+  <body>
+    <br>
+<table align="center" border="2">
+  <tr>
+
+        <th>Rollno</th>
+        <th>Name</th>
+        <th>Class</th>
+        <th>gender</th>
+        <th>Action</th>
+        <th>Action</th>
+
+  </tr>
+
+     <tr *ngFor="let item of students,let i=index">
+          <td>{{item.rollno}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.class}}</td>
+          <td>{{item.gender}}</td><br>
+          <td><button (click)="editFunction(i,item)">Edit</button></td>
+          <td><button (click)="deleteFunction(i,item)">Delete</button></td>
+      </tr>
+</table>
+
+
+<br>
+<br>
+
+
+
+ <form>
+  <table align="center">
+    <tr>
+       <td><label for="rollno">Rollno:</label></td>
+      <td><input type="number" id="rollno" value="" [(ngModel)]="student.rollno" name="rn"></td>
+      </tr><br>
+      <tr>
+     <td><label for="name">Name:</label></td>
+      <td><input type="text" id="name" value="" [(ngModel)]="student.name" name="name"></td>
+    </tr><br>
+    <tr>
+     <td><label for="class">Class:</label></td>
+      <td><select id="class" [(ngModel)]="student.class" name="class">
+        <option>Select  Any One Class</option>
+        <option>FE</option>
+        <option>BE</option>
+        <option>TE</option>
+      </select></td>
+     </tr><br>
+
+     <tr>
+      <td> Gender :</td>
+       <td><input type="radio" id="gender" value="female" [(ngModel)]="student.gender" name="female">
+      <label for="gender">female</label>&nbsp;
+      <input type="radio" id="gender" value="male" name="male">
+      <label for="gender">male</label></td>
+     </tr><br>
+     <tr>
+       <td>
+       <button type="button" class="btn btn-primary" (click)="submitData()">{{isEdit==true?'update':'Submit'}}</button>&nbsp;</td>
+       <td><button type="reset" class="btn btn-primary" (click)="resetFunction()">Reset</button></td>
+     </tr>
+</table>
+</form>
+
+
+  </body>
+</html>
+
+

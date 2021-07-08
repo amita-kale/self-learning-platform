@@ -1,1 +1,34 @@
-<p>crud-service-form works!</p>
+<form>
+  <table align="center">
+    <tr>
+       <td><label for="rollno">Rollno:</label></td>
+      <td><input type="number" id="rollno" value="" [(ngModel)]="student.rollno" name="rn"></td>
+      </tr><br>
+      <tr>
+     <td><label for="name">Name:</label></td>
+      <td><input type="text" id="name" value="" [(ngModel)]="student.name" name="name"></td>
+    </tr><br>
+    <tr>
+     <td><label for="class">Class:</label></td>
+      <td><select id="class" [(ngModel)]="student.class" name="class">
+        <option>Select  Any One Class</option>
+        <option>FE</option>
+        <option>BE</option>
+        <option>TE</option>
+      </select></td>
+     </tr><br>
+
+     <tr>
+      <td> Gender :</td>
+       <td><input type="radio" id="gender" value="female" [(ngModel)]="student.gender" name="female">
+      <label for="gender">female</label>&nbsp;
+      <input type="radio" id="gender" value="male" name="male">
+      <label for="gender">male</label></td>
+     </tr><br>
+     <tr>
+       <td>
+       <button type="button" class="btn btn-primary" (click)="submitData()">{{isEdit==true?'update':'Submit'}}</button>&nbsp;</td>
+       <td><button type="reset" class="btn btn-primary" (click)="resetFunction()">Reset</button></td>
+     </tr>
+</table>
+</form>
