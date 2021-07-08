@@ -1,1 +1,304 @@
-<p>crud-using-js works!</p>
+<!--
+<html>
+
+  <head>
+    <title>Table and Form</title>
+  </head>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      ////create array...........................................
+      var stud = [
+        {
+          Roll_No: 1,
+          Name: 'amita',
+          Class: "FE",
+          Village: "Khodad",
+        },
+        {
+          Roll_No: 2,
+          Name: 'Rutika',
+          Class: "SE",
+          Village: "Jadhavwadi",
+        },
+        {
+          Roll_No: 3,
+          Name: 'Ashu',
+          Class: "TE",
+          Village: "Gadachivadi",
+        },
+        {
+          Roll_No: 4,
+          Name: 'Aniket',
+          Class: "BE",
+          Village: "Kalewadi",
+        },
+
+      ];
+
+      /////body................................
+      let body = document.createElement('body');
+      const mainDiv = document.createElement('div');
+      mainDiv.id = 'main_div';
+      newtbl();
+      isEdit = false;
+      indexToEditStudent = -1;
+
+      function newtbl() {
+        let table = document.createElement('table');
+        table.border = "1";
+        table.align = "center";
+        let tr = document.createElement('tr');
+        let th = document.createElement('th');
+        let name = document.createTextNode("Roll_No");
+        th.append(name);
+        tr.append(th);
+
+        th = document.createElement('th');
+        name = document.createTextNode("Name");
+        th.append(name);
+        tr.append(th);
+
+        th = document.createElement('th');
+        name = document.createTextNode("Class");
+        th.append(name);
+        tr.append(th);
+
+        th = document.createElement('th');
+        name = document.createTextNode("Village");
+        th.append(name);
+        tr.append(th);
+        table.append(tr);
+
+        th = document.createElement('th')
+        name = document.createTextNode('Action');
+        th.append(name);
+        tr.append(th);
+
+        stud.forEach((ele, indexxx) => {
+          tr = document.createElement('tr');
+          let td = document.createElement('td');
+          name = document.createTextNode(ele.Roll_No);
+          td.append(name);
+          tr.append(td);
+
+          td = document.createElement('td');
+          name = document.createTextNode(ele.Name);
+          td.append(name);
+          tr.append(td);
+
+          td = document.createElement('td');
+          name = document.createTextNode(ele.Class);
+          td.append(name);
+          tr.append(td);
+
+          td = document.createElement('td');
+          name = document.createTextNode(ele.Village);
+          td.append(name);
+          tr.append(td);
+
+          // create Edit Button.....................
+
+          td = document.createElement('td');
+          let button = document.createElement('button');
+          name = document.createTextNode('Edit');
+          td.append(button);
+          button.append(name);
+
+          button.addEventListener('click', function () {
+            console.log(stud[indexxx]);
+            document.getElementById('Roll_no').value = stud[indexxx].Roll_No;
+            document.getElementById('name').value = stud[indexxx].Name;
+            document.getElementById('class').value = stud[indexxx].Class;
+            document.getElementById('Village').value = stud[indexxx].Village;
+            isEdit = true;
+            const myButton = document.getElementById('submit-button');
+            myButton.innerText = 'Update';
+            indexToEditStudent = indexxx;
+            //console.log(indexToEditStudent);
+          })
+          td.append(button);
+          tr.append(td);
+
+          // create Delete Button....................................
+          td = document.createElement('td');
+          button = document.createElement('button');
+          name = document.createTextNode('Delete');
+          button.addEventListener('click', () => {
+            document.getElementById('main_div').innerHTML = '';
+            console.log(stud[indexxx]);
+            stud.splice(indexxx, 1);
+            newtbl();
+          });
+          td.append(button);
+          button.append(name);
+          td.append(button);
+          tr.append(td);
+
+          table.append(tr);
+        });
+
+        mainDiv.append(table);
+        document.body.appendChild(mainDiv);
+      }
+
+      //Form Coding..........
+      let form = document.createElement('form');
+      table = document.createElement('table');
+      table.align = "center";
+      let h4 = document.createElement('h4');
+      let br = document.createElement('br');
+
+      let text = document.createTextNode('Student form');
+      h4.append(text);
+      table.append(h4);
+
+      tr = document.createElement('tr');
+      let td = document.createElement('td');
+      let label = document.createElement('label');
+      label.setAttribute("for", "Roll_no");
+      text = document.createTextNode('Roll_no');
+      label.append(text);
+      td.append(label);
+      tr.append(td);
+
+      td = document.createElement('td');
+      let input = document.createElement('input');
+      input.id = "Roll_no";
+      input.type = "number";
+      td.append(input);
+      tr.append(td);
+      table.append(tr);
+      br = document.createElement('br');
+
+      tr = document.createElement('tr');
+      td = document.createElement('td');
+      label = document.createElement('label');
+      label.setAttribute("for", "name");
+      text = document.createTextNode('Name');
+      label.append(text);
+      td.append(label);
+      tr.append(td);
+
+      td = document.createElement('td');
+      input = document.createElement('input');
+      input.id = "name";
+      input.type = "text";
+      td.append(input);
+      tr.append(td);
+      table.append(tr);
+      br = document.createElement('br');
+
+      tr = document.createElement('tr');
+      td = document.createElement('td');
+      label = document.createElement('label');
+      label.setAttribute("for", "class");
+      text = document.createTextNode('Class');
+      label.append(text);
+      td.append(label);
+      tr.append(td);
+
+      td = document.createElement('td');
+      input = document.createElement('input');
+      input.id = "class";
+      input.type = "text";
+      td.append(input);
+      tr.append(td);
+      table.append(tr);
+      br = document.createElement('br');
+
+      tr = document.createElement('tr');
+      td = document.createElement('td');
+      label = document.createElement('label');
+      label.setAttribute("for", "village");
+      text = document.createTextNode('Village');
+      label.append(text);
+      td.append(label);
+      tr.append(td);
+
+      td = document.createElement('td');
+      input = document.createElement('input');
+      input.id = "Village";
+      input.type = "text";
+      td.append(input);
+      tr.append(td);
+      table.append(tr);
+      br = document.createElement('br');
+
+      tr = document.createElement('tr');
+      td = document.createElement('td');
+      let button = document.createElement('button');
+      button.type = "button";
+      button.value = "Submit";
+      button.id = "submit-button";
+      text = document.createTextNode('Submit');
+      button.append(text);
+
+      button.addEventListener('click', () => {
+        document.getElementById('main_div').innerHTML = '';
+
+
+        const studObj = {
+          Roll_No: document.getElementById('Roll_no').value,
+          Name: document.getElementById('name').value,
+          Class: document.getElementById('class').value,
+          Village: document.getElementById('Village').value,
+        };
+        //// code for update button.................
+        if (isEdit === true) {
+          console.log(indexToEditStudent);
+          stud[indexxx] = studObj;
+          indexToEditStudent = -1;
+          isEdit = false;
+          const b = document.getElementById('submit-button');
+          b.innerText = 'Submit';
+        }
+        // code for submit button..............
+        else {
+          stud.push(studObj);
+        }
+
+        newtbl();
+        //code for form value null once submitted
+        document.getElementById('Roll_no').value = '';
+        document.getElementById('name').value = '';
+        document.getElementById('class').value = '';
+        document.getElementById('Village').value = '';
+
+      });
+      td.append(button);
+      tr.append(td);
+
+
+      td = document.createElement('td');
+      button = document.createElement('button');
+      button.type = "reset";
+      button.value = "Reset";
+      text = document.createTextNode('Reset');
+
+      button.addEventListener('click', () => {
+        const myButton = document.getElementById('submit-button');
+        myButton.innerText = 'Submit';
+        isEdit = false;
+        indexToEditStudent = -1;
+      });
+
+      button.append(text);
+      td.append(button);
+      tr.append(td);
+
+
+      button.append(text);
+      td.append(button);
+      tr.append(td);
+
+
+
+      table.append(tr);
+      form.append(table);
+      document.body.append(form);
+    });
+  </script>
+
+  </html> -->
+
