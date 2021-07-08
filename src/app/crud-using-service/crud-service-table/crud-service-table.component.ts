@@ -12,6 +12,6 @@ export class CrudServiceTableComponent implements OnInit {
 
   ngOnInit(): void {}
   routeFunction() {
-    this.router.navigate(['serviceform']);
+    this.router.navigate(['service/serviceform']);
   }
 }
