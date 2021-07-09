@@ -17,4 +17,7 @@ export class CrudServiceTableComponent implements OnInit {
   routeFunction() {
     this.router.navigate(['service/serviceform']);
   }
+  deleteFunction(i, item) {
+    this.studentService.delStudents(i);
+  }
 }

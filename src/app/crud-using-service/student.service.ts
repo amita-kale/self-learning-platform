@@ -12,4 +12,7 @@ export class StudentService {
   getStudents() {
     return this.studentsdata;
   }
+  delStudents(i) {
+    this.studentsdata.splice(i, 1);
+  }
 }
