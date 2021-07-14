@@ -20,4 +20,7 @@ export class CrudServiceTableComponent implements OnInit {
   deleteFunction(i, item) {
     this.studentService.delStudents(i);
   }
+  editFunction(i, item) {
+    this.router.navigate(['service/serviceform/' + i]);
+  }
 }

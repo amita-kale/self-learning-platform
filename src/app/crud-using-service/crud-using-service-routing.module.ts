@@ -12,6 +12,10 @@ const routes: Routes = [
     path: 'serviceform',
     component: CrudServiceFormComponent,
   },
+  {
+    path: 'serviceform/:ui', //ui is random variable you can take anything...and : for make this variable dynamic.
+    component: CrudServiceFormComponent,
+  },
 ];
 
 @NgModule({

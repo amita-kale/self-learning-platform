@@ -15,4 +15,10 @@ export class StudentService {
   delStudents(i) {
     this.studentsdata.splice(i, 1);
   }
+  updateStudent(index, student) {
+    this.studentsdata[index] = student;
+  }
+  getSpecificStudentByIndex(index) {
+    return this.studentsdata[index];
+  }
 }
