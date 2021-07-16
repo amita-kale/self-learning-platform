@@ -41,6 +41,21 @@ const routes: Routes = [
             (m) => m.CrudUsingServiceModule
           ),
       },
+
+      {
+        path: 'diff-module-service',
+        loadChildren: () =>
+          import('../crud-diff-module1/crud-diff-module1.module').then(
+            (m) => m.CrudDiffModule1Module
+          ),
+      },
+      {
+        path: 'diff-module-service-form',
+        loadChildren: () =>
+          import('../crud-diff-module2/crud-diff-module2.module').then(
+            (m) => m.CrudDiffModule2Module
+          ),
+      },
     ],
   },
 ];
