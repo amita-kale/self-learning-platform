@@ -45,7 +45,14 @@ export class CrudServiceFormComponent implements OnInit {
       class: this.student.class,
       gender: this.student.gender,
     };
-    this.studentService.addStudents(student);
+    if (this.isEdit == false) {
+      this.studentService.addStudents(student);
+    } else {
+      this.studentService.updateStudent(
+        this.routeParam.snapshot.params.ui,
+        student
+      );
+    }
     this.router.navigate(['service/servicecrud']);
   }
   resetFunction() {}
