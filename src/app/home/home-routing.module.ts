@@ -56,6 +56,13 @@ const routes: Routes = [
             (m) => m.CrudDiffModule2Module
           ),
       },
+      {
+        path: 'crud-using-json',
+        loadChildren: () =>
+          import('../crud-using-json/crud-using-json.module').then(
+            (m) => m.CrudUsingJsonModule
+          ),
+      },
     ],
   },
 ];
